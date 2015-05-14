@@ -1,0 +1,141 @@
+$def with(str)
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>科技项目经费管理系统</title>
+    <link type="text/css" href="../static/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="../static/js/jquery-2.1.1.min.js"></script>
+    <style>
+        body{
+            padding-top: 60px;
+        }
+    </style>
+</head>
+<script>
+    var url = document.location.search;
+    var arr = url.split('&');
+    var ar = arr[0].split('=');
+    var a1=decodeURI(ar[1]);
+    var ar = arr[1].split('=');
+    var a2=ar[1];
+</script>
+<script type="text/javascript">
+    function RefreshHint(fy,id) {
+        document.getElementById("fy").value = fy;
+        document.getElementById("fyid").value =id;
+    }
+</script>
+<script type="text/javascript">
+    function tianxie() {
+        document.getElementById("project").value = a2;
+        var myDate = new Date();
+        document.getElementById("tjtime").value = myDate.toLocaleString();
+        var type = document.getElementById("fy");
+        if (type.value == '请选择发票类型')
+            type.setCustomValidity("请单击选择发票类型！");
+        else if (type.value == '专职研究人员人工费' || type.value == '临时性研究人员人工费' || type.value == '仪器、设备购置费' || type.value == '仪器、设备试制费' || type.value == '软件购置费' || type.value == '现有仪器设备使用费' || type.value == '材料费' || type.value == '资料费' || type.value == '印刷出版费' || type.value == '知识产权费' || type.value == '会议费' || type.value == '差旅费' || type.value == '培训费' || type.value == '场地物业费' || type.value == '场地租金' || type.value == '专家咨询费' || type.value == '间接费' || type.value == '外委研究支出费' || type.value == '仪器设备租赁费' || type.value == '外协测试试验与加工费' || type.value == '税金')
+                type.setCustomValidity('');
+            else
+                type.setCustomValidity("请输入正确的发票类型！");
+    }
+</script>
+<body>
+<div class="container"  id="tab">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="tab-title container">
+            <ul class="nav navbar-nav" >
+                <li>
+                    <a href="#" onclick="parent.location='http://192.168.1.225:8080'">科技项目经费管理系统</a>
+                </li>
+                <li class="active">
+                    <a>添加新发票</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h4><script>document.write(a1);</script></h4>
+        <div class="list-group">
+            <h5>
+                <div class="row">
+                    <a class="list-group-item col-md-2 disabled">人工费</a>
+                    <a href="#" class="list-group-item col-md-4" onclick="RefreshHint('专职研究人员人工费',1)">专职研究人员人工费</a>
+                    <a href="#" class="list-group-item col-md-5" onclick="RefreshHint('临时性研究人员人工费',2)">临时性研究人员人工费</a>
+                </div>
+                <div class="row">
+                    <a class="list-group-item col-md-2 disabled">设备费</a>
+                    <a href="#" class="list-group-item col-md-2" onclick="RefreshHint('仪器、设备购置费',3)">仪器、设备购置费</a>
+                    <a href="#" class="list-group-item col-md-2" onclick="RefreshHint('仪器、设备试制费'),4">仪器、设备试制费</a>
+                    <a href="#" class="list-group-item col-md-2" onclick="RefreshHint('软件购置费',5)">软件购置费</a>
+                    <a href="#" class="list-group-item col-md-3" onclick="RefreshHint('现有仪器设备使用费',6)">现有仪器设备使用费</a>
+                </div>
+                <div class="row">
+                    <a class="list-group-item col-md-2 disabled">业务费</a>
+                    <a href="#" class="list-group-item col-md-1" onclick="RefreshHint('材料费',7)">材料费</a>
+                    <a href="#" class="list-group-item col-md-1" onclick="RefreshHint('资料费',8)">资料费</a>
+                    <a href="#" class="list-group-item col-md-2" onclick="RefreshHint('印刷出版费',9)">印刷出版费</a>
+                    <a href="#" class="list-group-item col-md-2" onclick="RefreshHint('知识产权费',10)">知识产权费</a>
+                    <a href="#" class="list-group-item col-md-1" onclick="RefreshHint('会议费',11)">会议费</a>
+                    <a href="#" class="list-group-item col-md-1" onclick="RefreshHint('差旅费',12)">差旅费</a>
+                    <a href="#" class="list-group-item col-md-1" onclick="RefreshHint('培训费',13)">培训费</a>
+                </div>
+                <div class="row">
+                    <a class="list-group-item col-md-2 disabled">场地使用费</a>
+                    <a href="#" class="list-group-item col-md-4" onclick="RefreshHint('场地物业费',14)">场地物业费</a>
+                    <a href="#" class="list-group-item col-md-5" onclick="RefreshHint('场地租金',15)">场地租金</a>
+                </div>
+                <div class="row">
+                    <a class="list-group-item col-md-2 disabled">专家咨询费</a>
+                    <a href="#" class="list-group-item col-md-9" onclick="RefreshHint('专家咨询费',16)">专家咨询费</a>
+                </div>
+                <div class="row">
+                    <a class="list-group-item col-md-2 disabled">间接费</a>
+                    <a href="#" class="list-group-item col-md-9" onclick="RefreshHint('间接费',17")>间接费</a>
+                </div>
+                <div class="row">
+                    <a class="list-group-item col-md-2 disabled">外委支出费</a>
+                    <a href="#" class="list-group-item col-md-3" onclick="RefreshHint('外委研究支出费',18)">外委研究支出费</a>
+                    <a href="#" class="list-group-item col-md-3" onclick="RefreshHint('仪器设备租赁费',19)">仪器设备租赁费</a>
+                    <a href="#" class="list-group-item col-md-3" onclick="RefreshHint('外协测试试验与加工费',20)">外协测试试验与加工费</a>
+                </div>
+                <div class="row">
+                    <a class="list-group-item col-md-2 disabled">税金</a>
+                    <a href="#" class="list-group-item col-md-9" onclick="RefreshHint('税金',21)">税金</a>
+                </div>
+            </h5>
+        </div>
+        <form method="post" action="addinvoices">
+            <h5>
+                <input id="project" type="text" name="data"  hidden></a>
+                <div class="row">
+                    <a class="col-md-2 list-group-item">发票类型：</a>
+                    <input id="fy" class="col-md-3 list-group-item disabled"  type="text" value="请选择发票类型" name="data" ></a>
+                </div>
+                <input id="fyid" type="number" name="data"  hidden></a>
+                <div class="row">
+                    <a class="col-md-2 list-group-item ">报销时间：</a>
+                    <input class="col-md-3 list-group-item" type="date" style="height:36px" value="" name="data" required>
+                </div>
+                <div class="row">
+                    <a class="col-md-2 list-group-item ">金额：</a>
+                    <input class="col-md-3 list-group-item" type="text" pattern="[0-9]*([.0-9]){0,1}[0-9]*" value="0" name="data" required>
+                </div>
+                <div class="row">
+                    <a class="col-md-2 list-group-item ">报销人：</a>
+                    <input class="col-md-3 list-group-item" type="text" value="" name="data" placeholder="必填项" required>
+                </div>
+                <div class="form row">
+                    <a class="col-md-2 list-group-item " style="height:200px">报销说明：</a>
+                    <a class="col-md-3"><textarea class="form-control" style="height:200px" name="data" placeholder="必填项" required></textarea></a>
+                </div>
+                <input id="tjtime" type="text" name="data"  hidden></a>
+            </h5>
+            <input type="submit" value="提交" onclick="tianxie()">
+            <input type="reset">
+        </form>
+   </div>
+</div>
+</body>
+</html>
